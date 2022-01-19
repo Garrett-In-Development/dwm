@@ -1,7 +1,20 @@
 dwm - dynamic window manager
 ============================
-dwm is an extremely fast, small, and dynamic window manager for X.
+dwm is an extremely fast, small, and dynamic window manager for X developed by the [suckless team](https://dwm.suckless.org/)
 
+This is my fork of their work with these patches:
+[actual fullscreen](https://dwm.suckless.org/patches/actualfullscreen/)
+[alpha](https://dwm.suckless.org/patches/alpha/)
+[color bar](https://dwm.suckless.org/patches/colorbar/)
+[cool autostart](https://dwm.suckless.org/patches/cool_autostart/)
+[hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)
+[inplace rotate](https://dwm.suckless.org/patches/inplacerotate/)
+[scratchpad](https://dwm.suckless.org/patches/scratchpad/)
+[statuscmd](https://dwm.suckless.org/patches/statuscmd/)
+[sticky](https://dwm.suckless.org/patches/sticky/)
+[swallow](https://dwm.suckless.org/patches/swallow/)
+[vanity gaps](https://dwm.suckless.org/patches/vanitygaps/)
+[warp](https://dwm.suckless.org/patches/warp/)
 
 Requirements
 ------------
