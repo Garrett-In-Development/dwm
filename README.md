@@ -4,7 +4,6 @@ dwm is an extremely fast, small, and dynamic window manager for X developed by t
 
 This is my fork of their work with these patches:
 [actual fullscreen](https://dwm.suckless.org/patches/actualfullscreen/)
-[alpha](https://dwm.suckless.org/patches/alpha/)
 [color bar](https://dwm.suckless.org/patches/colorbar/)
 [cool autostart](https://dwm.suckless.org/patches/cool_autostart/)
 [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)
