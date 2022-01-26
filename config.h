@@ -73,9 +73,20 @@ static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
+/* media key commands */
+static const char *raisebright[] = { "backlightcontrol", "up", "5", NULL };
+static const char *decbright[] = { "backlightcontrol", "down", "5", NULL };
+static const char *raisevol[] = { "volumecontrol", "up", "1", NULL };
+static const char *decvol[] = { "volumecontrol", "down", "1", NULL };
+static const char *mpdstop[] = { "mpdcontrol", "stop", NULL};
+static const char *mpdplay[] = { "mpdcontrol", "play", NULL};
+static const char *mpdnext[] = { "mpdcontrol", "next", NULL};
+static const char *mpdprev[] = { "mpdcontrol", "prev", NULL};
+
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ 0,                       	XK_Menu,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_Return, togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -116,6 +127,18 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ 0,				XF86XK_AudioRaiseVolume,   spawn, {.v = raisevol } },
+	{ 0,				XF86XK_AudioLowerVolume,   spawn, {.v = decvol } },
+	{ 0,				XF86XK_MonBrightnessUp,    spawn, {.v = raisebright } },
+	{ 0,				XF86XK_MonBrightnessDown,  spawn, {.v = decbright } },
+	{ 0,				XF86XK_AudioStop,	   spawn, {.v = mpdstop } },
+	{ 0,				XF86XK_AudioPlay,	   spawn, {.v = mpdplay } },
+	{ 0,				XF86XK_AudioPrev,	   spawn, {.v = mpdprev } },
+	{ 0,				XF86XK_AudioNext,	   spawn, {.v = mpdnext } },
+	{ MODKEY|ShiftMask, 		XK_bracketleft,		   spawn, {.v = decvol } },
+	{ MODKEY|ShiftMask,		XK_bracketright,	   spawn, {.v = raisevol } },
+	{ MODKEY|ControlMask,		XK_less,		   spawn, {.v = decbright} },
+	{ MODKEY|ControlMask,		XK_greater, 		   spawn, {.v = raisebright} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
