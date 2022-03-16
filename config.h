@@ -1,5 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
+/* Constants */
+#define TERMINAL "st"
+#define TERMCLASS "St"
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 8;       /* snap pixel */
@@ -89,11 +93,20 @@ static Key keys[] = {
 	{ 0,                       	XK_Menu,   spawn,          {.v = dmenucmd } },
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_Return, togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,			XK_w,	   spawn,	   SHCMD("$BROWSER") },
+	{ MODKEY,			XK_grave,  spawn,	   SHCMD("dmenuunicode") },
+	{ MODKEY,			XK_r,	   spawn,	   SHCMD(TERMINAL " -e lf") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD(TERMINAL " -e bluetoothctl") },
+	{ MODKEY,                       XK_s,      togglesticky,   {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_j,      inplacerotate,  {.i = +1} },
+	{ MODKEY|ShiftMask,             XK_k,      inplacerotate,  {.i = -1} },
+	{ MODKEY|ShiftMask,             XK_h,      inplacerotate,  {.i = +2} },
+	{ MODKEY|ShiftMask,             XK_l,      inplacerotate,  {.i = -2} },
+//	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_d,      spawn,     	   SHCMD("dmenu_run") },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|Mod1Mask,              XK_h,      incrgaps,       {.i = +1 } },
